@@ -3,14 +3,17 @@
 		<hevu-nav title='导航头' fixed :fixedTop='0' :extraHeight='0' search searchPlaceholderStyle='color:red'/>
 		
 		<image class="logo" src="/static/logo.png"></image>
-		<HevuTabs :activeValue='3'
-		:list="['简约 虚线', '镂空  点缀', 12, '导航头123', 34, '简约 虚线', '镂空  点缀', '纯色 实线', '导航头', '导航头123']"/>
-		<br/>
-		<HevuTabs :activeValue='1' :animated='false'
-		:list="['简约虚线', '镂空 点缀', '导航头123']"/>
-		<br/>
-		<HevuTabs :activeValue='1' type='back' @click='onCkikk'
-		:list="['简约虚线', '镂空 点缀', '导航头123']"/>
+		
+		<HevuSlidingVode></HevuSlidingVode>
+		sad
+		
+		<!-- <HevuGesture>
+			<view class="touch">
+				<HevuTabs :activeValue='1' type='back' @click='onCkikk'
+				:list="['简约虚线', '镂空 点缀', '导航头123']"/>
+				
+			</view>
+		</HevuGesture> -->
 		<!-- <view class="text-area">
 			<text class="title">{{title}}</text>
 		</view>
@@ -25,13 +28,20 @@
 		<HevuButton disabled type="brief" borderType='dashed'>简约 虚线</HevuButton>
 		<br/>
 		<HevuButton disabled type="hollow" borderType='dotted' >镂空  点缀</HevuButton> -->
+		<HevuLoading type="loading10"/>
+		
 	</view>
 </template>
 
 <script>
 	import HevuButton from "@/componentsLayout/hevu-button/components/hevu-button/hevu-button.vue"
 	import HevuTabs from '@/componentsLayout/hevu-tabs/components/hevu-tabs/hevu-tabs.vue'
- 	export default {
+	import HevuGesture from '@/componentsLayout/hevu-gesture/components/hevu-gesture/hevu-gesture.vue'
+ 	import HevuSlidingVode from '@/componentsLayout/hevu-sliding-vode/components/hevu-sliding-vode/hevu-sliding-vode.vue'
+	import HevuLoading from '@/componentsLayout/hevu-loading/components/hevu-loading/hevu-loading.vue'
+	
+	
+	export default {
 		data() {
 			return {
 				title: 'Hello'
@@ -39,15 +49,27 @@
 		},
 		components: {
 			HevuButton,
-			HevuTabs
+			HevuTabs,
+			HevuGesture,
+			HevuSlidingVode,
+			HevuLoading
 		},
 		onLoad() {
 
 		},
 		methods: {
-onCkikk(ien,e){
-	console.log(ien,e)
-}
+			onCkikk(ien,e){
+				console.log(ien,e)
+			},
+			touchStart(e){
+				
+			},
+			touchmove(e){
+				
+			},
+			touchEnd(e){
+				
+			}
 		}
 	}
 </script>
@@ -77,5 +99,10 @@ onCkikk(ien,e){
 	.title {
 		font-size: 36rpx;
 		color: #8f8f94;
+	}
+	.touch{
+		width: 300rpx;
+		height: 300px;
+		background-color: #4CD964;
 	}
 </style>

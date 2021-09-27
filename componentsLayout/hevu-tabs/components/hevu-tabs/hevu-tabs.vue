@@ -77,6 +77,7 @@
 					return this.list.findIndex(val => val[this.activeKey] == this.activeValue);
 				}
 				return this.activeValue;
+				
 			}
 		},
 		watch: {
