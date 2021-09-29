@@ -18,7 +18,7 @@
 			},
 			size: {
 				type: Number,
-				default: 120,
+				default: 200,
 			}
 			
 		},

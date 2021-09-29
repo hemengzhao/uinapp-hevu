@@ -1,6 +1,6 @@
 <template>
 	<view class="section">
-		  <div class='sk-rotating-plane' :style="{backgroundColor: bacgColor, width: size + 'rpx', height: size + 'rpx'}"></div>
+		  <div class='sk-rotating-plane' :style="{backgroundColor: bacgColor, '--width':  size * .8 + 'rpx', width: size * .8 + 'rpx', height: size * .8  + 'rpx'}"></div>
 	</view>
 	
 </template>
@@ -16,7 +16,7 @@
 			},
 			size: {
 				type: Number,
-				default: 120,
+				default: 200,
 			}
 			
 		},
@@ -45,16 +45,16 @@
 	
 	@-webkit-keyframes sk-rotating-plane {
 	  0% {
-	    -webkit-transform: perspective(120rpx) rotateX(0deg) rotateY(0deg);
-	            transform: perspective(120rpx) rotateX(0deg) rotateY(0deg);
+	    -webkit-transform: perspective(var('--width')) rotateX(0deg) rotateY(0deg);
+	            transform: perspective(var('--width')) rotateX(0deg) rotateY(0deg);
 	  }
 	  50% {
-	    -webkit-transform: perspective(120rpx) rotateX(-180.1deg) rotateY(0deg);
-	            transform: perspective(120rpx) rotateX(-180.1deg) rotateY(0deg);
+	    -webkit-transform: perspective(var('--width')) rotateX(-180.1deg) rotateY(0deg);
+	            transform: perspective(var('--width')) rotateX(-180.1deg) rotateY(0deg);
 	  }
 	  100% {
-	    -webkit-transform: perspective(120rpx) rotateX(-180deg) rotateY(-179.9deg);
-	            transform: perspective(120rpx) rotateX(-180deg) rotateY(-179.9deg);
+	    -webkit-transform: perspective(var('--width')) rotateX(-180deg) rotateY(-179.9deg);
+	            transform: perspective(var('--width')) rotateX(-180deg) rotateY(-179.9deg);
 	  }
 	}
 	

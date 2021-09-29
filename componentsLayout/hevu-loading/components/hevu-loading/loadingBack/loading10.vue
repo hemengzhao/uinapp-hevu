@@ -13,7 +13,7 @@
 <script>
 	
 	export default {
-		name: "LoadingBack9",
+		name: "LoadingBack10",
 		props: {
 			bacgColor: {
 				type: String,
@@ -21,7 +21,7 @@
 			},
 			size: {
 				type: Number,
-				default: 120,
+				default: 200,
 			}
 			
 		},
@@ -33,8 +33,8 @@
 			},
 			bodyStyle: function(){
 				return {
-					width: this.size + 'rpx',
-					height: this.size + 'rpx'
+					width: this.size * .85 + 'rpx',
+					height: this.size * .85 + 'rpx'
 				}
 			},
 		},
@@ -47,6 +47,9 @@
 </script>
 
 <style scoped lang="scss">
+	.section{
+		padding: 20rpx;
+	}
 	.sk-folding-cube {
 	  width: 4em;
 	  height: 4em;

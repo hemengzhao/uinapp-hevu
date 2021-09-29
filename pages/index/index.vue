@@ -1,11 +1,18 @@
 <template>
 	<view class="content">
-		<hevu-nav title='导航头' fixed :fixedTop='0' :extraHeight='0' search searchPlaceholderStyle='color:red'/>
+		<!-- <hevu-nav title='导航头' fixed :fixedTop='0' :extraHeight='0' search searchPlaceholderStyle='color:red'/>
 		
-		<image class="logo" src="/static/logo.png"></image>
 		
-		<HevuSlidingVode></HevuSlidingVode>
-		sad
+		<view></view>
+		<hevu-loading type="loading13" :opacity='0.8' :size="150">
+			<image class="logo" src="/static/logo.png"></image>
+		</hevu-loading>
+		<HevuLoading type="loading13" :opacity='0.4' :loadingning='loadingning'>
+			<view style="width: 750rpx;">
+				<HevuSlidingVode></HevuSlidingVode>
+			</view>
+		</HevuLoading>
+		<HevuButton @click='loadingning = !loadingning'>切换</HevuButton> -->
 		
 		<!-- <HevuGesture>
 			<view class="touch">
@@ -28,8 +35,50 @@
 		<HevuButton disabled type="brief" borderType='dashed'>简约 虚线</HevuButton>
 		<br/>
 		<HevuButton disabled type="hollow" borderType='dotted' >镂空  点缀</HevuButton> -->
-		<HevuLoading type="loading10"/>
 		
+		<view :style="{width: '100%'}">
+			<view :style="{width: '33%', display: 'inline-block'}">
+				<HevuLoading type="loading1" />
+			</view>
+			<view :style="{width: '33%', display: 'inline-block'}">
+				<HevuLoading type="loading2"/>
+			</view>
+			<view :style="{width: '33%', display: 'inline-block'}">
+				<HevuLoading type="loading3"/>
+			</view>
+			<view :style="{width: '33%', display: 'inline-block'}">
+				<HevuLoading type="loading4"/>
+			</view>
+			<view :style="{width: '33%', display: 'inline-block'}">
+				<HevuLoading type="loading5"/>
+			</view>
+			<view :style="{width: '33%', display: 'inline-block'}">
+				<HevuLoading type="loading6"/>
+			</view>
+			<view :style="{width: '33%', display: 'inline-block'}">
+				<HevuLoading type="loading7"/>
+			</view>
+			<view :style="{width: '33%', display: 'inline-block'}">
+				<HevuLoading type="loading86"/>
+			</view>
+			<view :style="{width: '33%', display: 'inline-block'}">
+				<HevuLoading type="loading9"/>
+			</view>
+			<view :style="{width: '33%', display: 'inline-block'}">
+				<HevuLoading type="loading10"/>
+			</view>
+			<view :style="{width: '33%', display: 'inline-block'}">
+				<HevuLoading type="loading11"/>
+			</view>
+			<view :style="{width: '33%', display: 'inline-block'}">
+				<HevuLoading type="loading12" :size="200"/>
+			</view>
+			<view :style="{width: '33%', display: 'inline-block'}">
+				<HevuLoading type="loading13" :size="150"/>
+			</view>
+		</view>
+		
+		<HevuLoading type="loading8" fixed />
 	</view>
 </template>
 
@@ -44,7 +93,8 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+				loadingning: true
 			}
 		},
 		components: {
