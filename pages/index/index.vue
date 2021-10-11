@@ -1,5 +1,6 @@
 <template>
 	<view class="content">
+		
 		<!-- <hevu-nav title='导航头' fixed :fixedTop='0' :extraHeight='0' search searchPlaceholderStyle='color:red'/>
 		
 		
@@ -36,7 +37,7 @@
 		<br/>
 		<HevuButton disabled type="hollow" borderType='dotted' >镂空  点缀</HevuButton> -->
 		
-		<view :style="{width: '100%'}">
+		<!-- <view :style="{width: '100%'}">
 			<view :style="{width: '33%', display: 'inline-block'}">
 				<HevuLoading type="loading1" />
 			</view>
@@ -76,9 +77,10 @@
 			<view :style="{width: '33%', display: 'inline-block'}">
 				<HevuLoading type="loading13" :size="150"/>
 			</view>
-		</view>
+		</view> -->
 		
-		<HevuLoading type="loading8" fixed />
+		<!-- <HevuLoading type="loading8" fixed /> -->
+		<HevuNavlist :list="list" @onChange="onChange"/>
 	</view>
 </template>
 
@@ -88,13 +90,30 @@
 	import HevuGesture from '@/componentsLayout/hevu-gesture/components/hevu-gesture/hevu-gesture.vue'
  	import HevuSlidingVode from '@/componentsLayout/hevu-sliding-vode/components/hevu-sliding-vode/hevu-sliding-vode.vue'
 	import HevuLoading from '@/componentsLayout/hevu-loading/components/hevu-loading/hevu-loading.vue'
-	
+	import HevuNavlist from '@/componentsLayout/hevu-navlist/components/hevu-navlist/hevu-navlist.vue'
 	
 	export default {
 		data() {
 			return {
 				title: 'Hello',
-				loadingning: true
+				loadingning: true,
+				list: [{
+					name: 'loading',
+					url: '/pages/loading/index'
+				}, {
+					name: '自定义导航头',
+					url: '/pages/loading/index'
+				}, {
+					name: 'tabs选项卡',
+					url: '/pages/loading/index'
+				}, {
+					name: '按钮',
+					url: '/pages/loading/index'
+				}, {
+					name: '滑块选择器',
+					url: '/pages/sliderSelector/index'
+				}]
+				
 			}
 		},
 		components: {
@@ -102,7 +121,8 @@
 			HevuTabs,
 			HevuGesture,
 			HevuSlidingVode,
-			HevuLoading
+			HevuLoading,
+			HevuNavlist
 		},
 		onLoad() {
 
@@ -119,6 +139,14 @@
 			},
 			touchEnd(e){
 				
+			},
+			
+			onChange(iten, k){
+				
+				// uni.navigateTo({
+				//     url: iten.url
+				// });
+				console.log(iten, k);
 			}
 		}
 	}
@@ -126,10 +154,10 @@
 
 <style>
 	.content {
-		display: flex;
+		/* display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
+		justify-content: center; */
 	}
 
 	.logo {
