@@ -2,7 +2,7 @@
 	<view>
 		<HevuNav title='滑块选择器' rightIcon='' @leftTag='leftTag'/>
 		<view>
-			<HevuSliderSelector/>
+			<HevuSliderSelector :min='-50' :value="[-10, 99]" :size='80' :sliderHeight='20' range/>
 		</view>
 	</view>
 </template>
