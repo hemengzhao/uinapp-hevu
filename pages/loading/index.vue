@@ -1,7 +1,9 @@
 <template>
 	<view style="overflow: hidden">
 		<HevuNav title='loading' rightIcon='' @leftTag='leftTag'/>
+		
 		<view class="topExhibition">
+			<view style="text-align: center;">演示效果</view>
 			<HevuLoading :loadingning='loadingning' :fixed='fixed' :zIndex='zIndex' :opacity='opacity' 
 			:backgroundColor='backgroundColor' :loadingText='loadingText' :textColor='textColor'
 			:textSize='textSize' :textFlicker='textFlicker' :loadingIconColor='loadingIconColor'
@@ -53,41 +55,43 @@
 			<view class="list">
 				<view class="name">定位层级</view>
 				<view class="setup">
-					 <input class="uni-input" type="number" placeholder="这是一个数字输入框" v-model="zIndex" />
+					<HevuSliderSelector :value='zIndex' :max='9999' @onChange='onChangeIndex'/>
+					
 				</view>
 			</view>
 			
 			<view class="list">
 				<view class="name">背景透明度</view>
 				<view class="setup">
-					 <input class="uni-input" type="number" placeholder="这是一个数字输入框" v-model="opacity" />
+					<HevuSliderSelector :value='opacity' :max='1' :toFixed='1' @onChange='onChangeOpacity'/>
+					
 				</view>
 			</view>
 			<view class="list">
 				<view class="name">背景颜色</view>
 				<view class="setup">
-					 <input class="uni-input" placeholder="这是一个数字输入框" v-model="backgroundColor" />
+					 <input class="uni-input" placeholder="输入框" v-model="backgroundColor" />
 				</view>
 			</view>
 			
 			<view class="list">
 				<view class="name">加载文字提示</view>
 				<view class="setup">
-					 <input class="uni-input" placeholder="这是一个数字输入框" v-model="loadingText" />
+					 <input class="uni-input" placeholder="输入框" v-model="loadingText" />
 				</view>
 			</view>
 			
 			<view class="list">
 				<view class="name">加载文字颜色</view>
 				<view class="setup">
-					 <input class="uni-input" placeholder="这是一个数字输入框" v-model="textColor" />
+					 <input class="uni-input" placeholder="输入框" v-model="textColor" />
 				</view>
 			</view>
 			
 			<view class="list">
 				<view class="name">加载文字大小</view>
 				<view class="setup">
-					 <input class="uni-input" placeholder="这是一个数字输入框" v-model="textSize" />
+					<HevuSliderSelector :min='10' :value='textSize' :max='50' @onChange='onChangeTextSize'/>
 				</view>
 			</view>
 			
@@ -114,21 +118,22 @@
 			<view class="list">
 				<view class="name">加载图颜色</view>
 				<view class="setup">
-					 <input class="uni-input" placeholder="这是一个数字输入框" v-model="loadingIconColor" />
+					 <input class="uni-input" placeholder="输入框" v-model="loadingIconColor" />
 				</view>
 			</view>
 			
 			<view class="list">
 				<view class="name">加载图类型</view>
 				<view class="setup">
-					 <input class="uni-input" placeholder="这是一个数字输入框" v-model="type" />
+					<HevuSliderSelector :min='1' :max='13' :value='type' @onChange='onChangeType'/>
+					
 				</view>
 			</view>
 			
 			<view class="list">
 				<view class="name">加载图大小</view>
 				<view class="setup">
-					 <input class="uni-input" placeholder="这是一个数字输入框" v-model="size" />
+					<HevuSliderSelector :min='50' :max='200' :value='size' @onChange='onChangeSize' bgColor='#fff'/>
 				</view>
 			</view>
 		</view>
@@ -138,6 +143,7 @@
 <script>
 	import HevuLoading from '@/componentsLayout/hevu-loading/components/hevu-loading/hevu-loading.vue'
 	import HevuNav from "@/componentsLayout/hevu-nav/components/hevu-nav/hevu-nav.vue"
+	import HevuSliderSelector from "@/componentsLayout/hevu-slider-selector/components/hevu-slider-selector/hevu-slider-selector.vue"
 	export default {
 		data() {
 			return {
@@ -157,7 +163,8 @@
 		},
 		components: {
 			HevuLoading,
-			HevuNav
+			HevuNav,
+			HevuSliderSelector
 		},
 		methods: {
 			radioChange(e){
@@ -177,6 +184,21 @@
 			},
 			leftTag(){
 				uni.navigateBack()
+			},
+			onChangeIndex(e){
+				this.zIndex = e[0];
+			},
+			onChangeOpacity(e){
+				this.opacity = e[0];
+			},
+			onChangeTextSize(e){
+				this.textSize = e[0]
+			},
+			onChangeType(e){
+				this.type = e[0]
+			},
+			onChangeSize(e){
+				this.size = e[0]
 			}
 		}
 	}
@@ -184,7 +206,7 @@
 
 <style scoped lang="scss">
 	.topExhibition{
-		padding: 50rpx 20rpx ;
+		padding: 20rpx 20rpx ;
 		border: 1px dashed #999;
 		margin: 20rpx;
 		border-radius: 10rpx;
@@ -199,9 +221,15 @@
 	.parameter{
 		max-height: calc(100vh - 530rpx - 44px);
 		overflow: auto;
+		
 		.list{
-			padding-left: 20rpx;
-			margin-bottom: 30rpx;
+			padding:15rpx 0 15rpx 20rpx;
+			&:nth-child(odd){
+				// background-color: #bbb;
+			}
+			&:nth-child(even){
+				background-color: #eee;
+			}
 			.name{
 				height: 50rpx;
 				line-height: 50rpx;
